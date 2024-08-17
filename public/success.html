@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Payment</title>
+    <link rel="stylesheet" href="success.css" />
+    <script>
+        async function clearCart() {
+            try {
+                sessionStorage.removeItem('cart');
+                await fetch('/clear-cart', { method: 'POST' });
+
+                console.log("Cart cleared");
+                document.getElementById('message').textContent = "Your order will arrive in 2 business days.";
+            } catch (error) {
+                console.error("Error clearing cart:", error);
+                document.getElementById('message').textContent = "There was an issue clearing your cart.";
+            }
+        }
+        window.onload = () => {
+            clearCart();
+        };
+        function handleBackToHomepage() {
+            sessionStorage.removeItem('cart');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="sc-container">
+        <h1>Payment Successful</h1>
+        <p id="message">Your order will arrive in 2 business days.</p>
+        <img src="success.png" alt="Success" />
+        <a href="index.html" class="sc-btn" onclick="handleBackToHomepage()">Back to Homepage</a>
+    </div>
+</body>
+
+</html>

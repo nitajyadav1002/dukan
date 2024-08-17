@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css">
+    <!-- BoxIcons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>HassanAwan</title>
+</head>
+
+<body>
+    <section class="container forms">
+        <!-- Login Form -->
+        <div class="form login">
+            <h3 class="heading">Login-Form</h3>
+            <form action="/login" method="POST" class="content">
+                <div class="line underline"></div>
+
+                <div class="field input">
+                    <input type="email" name="emailOrPhone" placeholder="Enter your Email" required />
+                </div>
+
+                <div class="field input">
+                    <input type="password" name="password" placeholder="Enter your Password" class="password"
+                        required />
+                    <i class='bx bx-hide hide-show'></i>
+                </div>
+
+                <div class="forg">
+                    <button type="button" class="forget-btn"
+                        style="background-color: rgb(255, 119, 0); color: black; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                        Forgot password?
+                    </button>
+                </div>
+
+                <div class="field btn">
+                    <button type="submit">Login</button>
+                </div>
+
+                <div class="link sign-login">
+                    <span>Don't have an Account!</span>
+                    <a href="#" class="forget">Sign up</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- SignUp Form -->
+        <div class="form signup">
+            <h3 class="heading">SignUp-Form</h3>
+            <form action="/signup" method="POST" class="content">
+                <div class="line underline"></div>
+
+                <div class="field input">
+                    <input type="email" name="emailOrPhone" placeholder="Enter your Email" required />
+                </div>
+
+                <div class="field input">
+                    <input type="password" name="password" placeholder="Enter your new Password" class="password"
+                        required />
+                    <i class='bx bx-hide hide-show'></i>
+                </div>
+
+                <div class="field input">
+                    <input type="password" name="confirmPassword" placeholder="Confirm Password" class="password"
+                        required />
+                    <i class='bx bx-hide hide-show'></i>
+                </div>
+
+                <div class="space"></div>
+
+                <div class="field btn">
+                    <button type="submit">Sign Up</button>
+                </div>
+
+                <div class="link sign-login">
+                    <span>Already have an Account!</span>
+                    <a href="#" class="forget">Login</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="./login.js"></script>
+</body>
+
+</html>
