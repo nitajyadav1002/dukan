@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -11,21 +12,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "..", "public")));
 mongoose
-  .connect("mongodb://127.0.0.1:27017/userAuth")
+  .connect(process.env.MONGO_URI + "/userAuth")
   .then(() => {
     console.log("Connected to MongoDB (userAuth)");
   })
   .catch((error) => {
     console.error("Failed to connect to MongoDB (userAuth)", error);
   });
+
 const queryConnection = mongoose.createConnection(
-  "mongodb://127.0.0.1:27017/userQuery"
+  process.env.MONGO_URI + "/userQuery"
 );
 
 queryConnection.on("connected", () => {
   console.log("Connected to MongoDB (userQuery)");
 });
-
 queryConnection.on("error", (err) => {
   console.error("Failed to connect to MongoDB (userQuery)", err);
 });
@@ -154,7 +155,7 @@ app.get("/success", (req, res) => {
 app.get("/cancel", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "public", "cancel.html"));
 });
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
