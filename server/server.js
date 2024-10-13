@@ -127,8 +127,8 @@ app.post("/stripe-checkout", async (req, res) => {
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
-      success_url: "http://localhost:3000/success",
-      cancel_url: "http://localhost:3000/cancel",
+      success_url: "http://dukan-t3yb.onrender.com//success.html",
+      cancel_url: "http://dukan-t3yb.onrender.com//cancel.html",
     });
 
     res.json({ id: session.id });
