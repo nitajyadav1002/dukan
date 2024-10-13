@@ -155,7 +155,7 @@ app.get("/success", (req, res) => {
 app.get("/cancel", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "public", "cancel.html"));
 });
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
